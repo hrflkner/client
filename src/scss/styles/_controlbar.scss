@@ -1,0 +1,115 @@
+@use '../variables/variables' as v;
+
+.control-bar {
+    /* Component Typography */
+    font-family: 'Syne Mono', monospace;
+}
+.add-contact {
+    /* Layout */
+    float: left;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+
+    /* Design */
+    cursor: pointer;
+    font-size: 2rem;
+    color: v.$softturquoise;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid v.$softturquoise;
+    border-radius: 50%;
+}
+.display-date {
+    /* Layout */
+    display: flow-root;
+    float: right;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    /* Design */
+    color: v.$softturquoise;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+
+    /* Typography */
+    font-size: 1.8rem;
+
+    .display-checkbox {
+        /* Hide Default Checkbox*/
+        input[type='checkbox'] {
+            visibility: hidden;
+        }
+
+        /* Design */
+        cursor: pointer;
+
+        .custom-checkbox {
+            /* Layout */
+            position: absolute;
+            display: inline-block;
+            transform: translateX(-100%);
+
+            /* Design */
+            height: 2rem;
+            width: 2rem;
+            background-color: rgb(0, 0, 0);
+            border: 1px solid v.$softturquoise;
+            border-radius: 50%;
+
+            /* Checkmark Style (1/3) */
+            &:after {
+                content: '';
+                position: absolute;
+                display: none;
+            }
+        }
+    }
+    input:checked ~ .custom-checkbox:after {
+        /* Checkmark Style (2/3) */
+        display: block;
+    }
+    .custom-checkbox:after {
+        /* Checkmark Style (3/3) */
+        left: 7px;
+        top: -5px;
+        width: 10px;
+        height: 20px;
+        border: solid v.$softturquoise;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    span:last-of-type {
+        /* Layout */
+        padding-left: 1rem;
+
+        /* Stop Text Highlighting Fix*/
+        user-select: none; /* For Chrome and Opera */
+        -ms-user-select: none; /* For Internet Edge and Explorer*/
+        -webkit-user-select: none; /* For Safari */
+        -moz-user-select: none; /* For Firefox */
+    }
+}
+.column-labels {
+    /* Layout */
+    display: flow-root;
+    clear: both;
+    padding: 0 1vw;
+
+    /* Design */
+    color: v.$softturquoise;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+
+    ul {
+        /* Layout */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 2rem;
+
+        /* Typography */
+        font-size: 2rem;
+    }
+}

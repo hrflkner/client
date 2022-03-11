@@ -1,0 +1,67 @@
+@use '../variables/variables' as v;
+
+header {
+    /* Layout */
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 10rem;
+
+    /* Design */
+    color: white;
+    background-color: black;
+
+    .logo {
+        /* Typography */
+        color: v.$softturquoise;
+        font-size: 4rem;
+        font-family: 'Syne Mono', monospace;
+    }
+
+    .date-time-block {
+        /* Layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        & > span:first-of-type {
+            margin-bottom: 1rem;
+        }
+
+        /* Typography */
+        font-size: 2rem;
+        letter-spacing: 0.3rem;
+        font-family: 'Noto Sans', sans-serif;
+    }
+
+    & > span:last-of-type {
+        /* Layout */
+        max-width: 22rem;
+        text-align: right;
+
+        /* Typography */
+        font-size: 1.5rem;
+        font-family: 'Noto Sans', sans-serif;
+        color: v.$softturquoise;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+}
+.custom-shape-divider-top-1646919682 {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+
+    svg {
+        position: relative;
+        display: block;
+        width: calc(115% + 1.3px);
+        height: 100px;
+    }
+
+    .shape-fill {
+        fill: #000000;
+    }
+}

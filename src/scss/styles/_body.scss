@@ -1,0 +1,10 @@
+@use '../variables/variables' as v;
+
+body {
+    /* Design */
+    background-color: v.$softgrey;
+}
+main {
+    /* Layout */
+    padding: 12rem 15vw;
+}
