@@ -1,8 +1,10 @@
+import AddContact from './AddContact/OpenAddContactForm';
+
 function ControlBar() {
     return (
         <>
             <section className="control-bar">
-                <button className="add-contact">+</button>
+                <AddContact />
                 <section className="display-date">
                     <label className="display-checkbox">
                         <input type="checkbox" name="date" />
@@ -14,8 +16,8 @@ function ControlBar() {
                     <ul>
                         <li>Name</li>
                         <li>Company</li>
-                        <li>Date Added</li>
-                        <li>Phone Number</li>
+                        <li>Date</li>
+                        <li>Phone</li>
                         <li>Email</li>
                         <li>Origin</li>
                     </ul>

@@ -1,13 +1,23 @@
-import axios from 'axios';
+import { queryDataBase } from './util/QueryDataBase';
 
 function ContactTable() {
-    const res = axios.get('http://localhost:5000/contactapi');
+    // See: src/components/utils/QueryDataBase
+    let contactEntries = queryDataBase();
 
     return (
         <>
-            <div className="contact-grid">
-                <h1></h1>
-            </div>
+            <section className="contacttable-container">
+                {contactEntries.map((contact) => (
+                    <section className="contact-grid row">
+                        <section>{contact.Name}</section>
+                        <section>{contact.Company}</section>
+                        <section>{contact['Date Added']}</section>
+                        <section>{contact['Phone Number']}</section>
+                        <section>{contact.Email}</section>
+                        <section>{contact.Origin}</section>
+                    </section>
+                ))}
+            </section>
         </>
     );
 }
