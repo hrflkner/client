@@ -3,24 +3,62 @@
 .control-bar {
     /* Component Typography */
     font-family: 'Syne Mono', monospace;
+
+    /* Layout */
+    margin: 0 auto;
+    max-width: 1200px;
 }
 .add-contact {
+    .add-contact-desktop {
+        /* Layout */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Typography */
+        font-size: 1.8rem;
+    }
+    .add-contact-mobile {
+        /* Desktop vs. Mobile */
+        display: none;
+
+        /* Layout */
+        //display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* Typography */
+        font-size: 1.8rem;
+    }
+
+    /* Avoid Background Blur on Popup*/
+    // position: relative;
+    // z-index: 100;
+
+    /* Typography */
+    font-family: 'Syne Mono', monospace;
+
     /* Layout */
     float: left;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 5rem;
 
     /* Design */
     cursor: pointer;
     font-size: 2rem;
     color: v.$softturquoise;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgb(0, 0, 0);
     border: 1px solid v.$softturquoise;
-    border-radius: 50%;
+    border-radius: 5px;
+
+    &:hover {
+        color: rgba(255, 98, 247, 0.8);
+        border-color: rgba(255, 98, 247, 0.8);
+    }
 }
 .display-date {
     /* Layout */
-    display: flow-root;
+    display: none;
     float: right;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -93,9 +131,7 @@
 }
 .column-labels {
     /* Layout */
-    display: flow-root;
     clear: both;
-    padding: 0 1vw;
 
     /* Design */
     color: v.$softturquoise;
@@ -104,12 +140,45 @@
 
     ul {
         /* Layout */
-        display: flex;
+        display: -ms-grid;
+        display: grid;
         align-items: center;
         justify-content: space-between;
-        padding: 2rem 2rem;
+        grid-template-columns: 1fr 1fr 0.75fr 1fr 1.5fr 0.75fr;
+        padding: 2rem 3rem;
 
         /* Typography */
         font-size: 2rem;
+    }
+}
+
+/* Reactive Styles */
+@media all and (max-width: 1000px) {
+    .column-labels ul {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        li:nth-of-type(3) {
+            display: none;
+        }
+        li:nth-of-type(6) {
+            display: none;
+        }
+    }
+}
+
+@media all and (max-width: 525px) {
+    .add-contact {
+        .add-contact-desktop {
+            display: none;
+        }
+        .add-contact-mobile {
+            display: flex;
+        }
+    }
+    .column-labels ul {
+        grid-template-columns: 1fr 1fr 1fr;
+        li:nth-of-type(2) {
+            display: none;
+        }
     }
 }

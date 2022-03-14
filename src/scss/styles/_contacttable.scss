@@ -1,0 +1,105 @@
+@use '../variables/variables' as v;
+
+.contacttable-container {
+    /* Layout */
+    margin: 5rem auto;
+    max-width: 1200px;
+
+    /* Design */
+    border: 1px solid v.$softturquoise;
+
+    .row {
+        background-color: rgba(0, 0, 0, 0.6);
+
+        &:hover {
+            background-color: rgba(20, 20, 20, 0.9);
+
+            & > * {
+                color: rgb(196, 79, 200);
+                transform: scale(1.2);
+            }
+        }
+    }
+    .row:nth-of-type(2n) {
+        background-color: rgba(0, 0, 0, 0.25);
+
+        &:hover {
+            background-color: rgba(20, 20, 20, 0.5);
+        }
+    }
+}
+.contact-grid {
+    /* Layout */
+    padding: 0;
+
+    /* Component Typography */
+    font-size: 1.6rem;
+    font-family: 'Noto Sans', sans-serif;
+    color: v.$softturquoise;
+    line-height: 1.5;
+
+    /* Target Contact List Rows*/
+    /* Layout */
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.75fr 1fr 1.5fr 0.75fr;
+
+    padding: 2rem 3rem;
+
+    /* Target Contact List Cell */
+    & > * {
+        /* Layout */
+        max-width: 24vw;
+        width: -moz-fit-content;
+        width: fit-content;
+        overflow: hidden;
+    }
+}
+
+/* Reactive Styles */
+
+@media all and (max-width: 1115px) {
+    .contact-grid * {
+        font-size: 1.25vw;
+    }
+}
+
+@media all and (max-width: 1000px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        section:nth-of-type(3) {
+            display: none;
+        }
+        section:nth-of-type(6) {
+            display: none;
+        }
+
+        & * {
+            font-size: 1.4rem;
+        }
+    }
+}
+
+@media all and (max-width: 750px) {
+    .contact-grid {
+        section:nth-of-type(4),
+        :nth-of-type(5) {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+    }
+}
+
+@media all and (max-width: 525px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        section:nth-of-type(2) {
+            display: none;
+        }
+    }
+}

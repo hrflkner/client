@@ -3,8 +3,16 @@
 body {
     /* Design */
     background-color: v.$softgrey;
+    overflow: none;
 }
 main {
     /* Layout */
-    padding: 12rem 15vw;
+    padding: 12rem 8vw;
+}
+
+@media all and (max-width: 1000px) {
+    main {
+        /* Layout */
+        padding: 12rem 6vw;
+    }
 }
