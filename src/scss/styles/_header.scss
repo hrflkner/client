@@ -50,19 +50,17 @@ header {
     }
 }
 .custom-shape-divider-top-1646919682 {
-    margin: 0 auto;
-
     position: absolute;
-    width: 100%;
-    min-width: 1250px;
     overflow: hidden;
+    width: 100%;
     line-height: 0;
     margin-top: -0.5rem;
 
     svg {
         position: relative;
         display: block;
-        width: calc(115% + 1.3px);
+        width: calc(100%);
+        min-width: 1250px;
         height: 100px;
     }
 
