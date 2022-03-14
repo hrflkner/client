@@ -565,14 +565,14 @@ header > span:last-of-type {
   display: flex;
   flex-direction: column;
 }
-.popup-form .addcontact-form > * span {
+.popup-form .addcontact-form span {
   /* Layout */
   margin-top: -0.5rem;
   /* Typography */
   font-size: 2.5rem;
   line-height: 2;
 }
-.popup-form .addcontact-form > * input {
+.popup-form .addcontact-form input {
   /* Typography */
   color: rgba(255, 98, 247, 0.8);
   /* Design */
@@ -583,32 +583,17 @@ header > span:last-of-type {
   border-radius: 5px;
   padding: 0 1rem;
 }
-.popup-form .addcontact-form > * input::-moz-placeholder {
+.popup-form .addcontact-form input::-moz-placeholder {
   /* Typography */
   color: rgba(255, 98, 247, 0.8);
 }
-.popup-form .addcontact-form > * input:-ms-input-placeholder {
+.popup-form .addcontact-form input:-ms-input-placeholder {
   /* Typography */
   color: rgba(255, 98, 247, 0.8);
 }
-.popup-form .addcontact-form > * input::placeholder {
+.popup-form .addcontact-form input::placeholder {
   /* Typography */
   color: rgba(255, 98, 247, 0.8);
-}
-.popup-form .addcontact-form .add-contact-btn {
-  /* Layout */
-  height: 6rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* Typography */
-  color: #2cbed1;
-  /* Design */
-  background-color: black;
-  border: 1px solid #2cbed1;
-  /* Typography */
-  font-size: 2.6rem;
-  font-family: "Syne Mono", monospace;
 }
 .popup-form .add-contact-btn {
   /* Layout */
@@ -664,6 +649,11 @@ header > span:last-of-type {
     margin: 0 auto 14rem;
   }
 }
+@media all and (max-width: 850px) {
+  .popup-form > h2 {
+    font-size: 4.5vw;
+  }
+}
 @media all and (max-width: 680px) {
   .popup-container {
     align-items: flex-start;
@@ -671,23 +661,27 @@ header > span:last-of-type {
 
   .popup-form {
     /* Reactive Layout */
-    height: 80vh;
-    padding: 4rem 5vw 0;
+    height: 90vh;
+    padding-top: 1.5rem;
+    justify-content: center;
+    align-items: center;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 2fr 0.5fr;
+    grid-template-rows: 0.2fr 3fr 0.5fr;
     justify-content: flex-start;
   }
   .popup-form h2 {
     /* Typography */
     color: rgba(255, 98, 247, 0.8);
     font-size: 3rem;
-    max-width: 30rem;
+    max-width: 55vw;
     margin: 2rem 0 3rem;
   }
-  .popup-form .addcontact-form section > span {
+  .popup-form .addcontact-form span {
+    /* Layout */
+    padding-bottom: 0.8rem;
     /* Typography */
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
   .popup-form .addcontact-form {
     /* Reactive Layout */
@@ -698,6 +692,59 @@ header > span:last-of-type {
     margin: 0 auto;
     margin-top: -30rem;
     margin-bottom: 2rem;
+  }
+}
+@media all and (max-width: 400px) {
+  .popup-form {
+    height: 90vh;
+    max-height: 600px;
+    padding-top: 1.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup-form h2 {
+    font-size: 1.6rem;
+    max-width: 15rem;
+    margin: 0;
+  }
+  .popup-form .addcontact-form {
+    /* Layout */
+    margin-top: -20rem;
+  }
+  .popup-form .addcontact-form span {
+    /* Layout */
+    margin-top: 0.2rem;
+    /* Typography */
+    font-size: 1.4rem;
+    line-height: 2;
+  }
+  .popup-form .addcontact-form input {
+    height: 2.4rem;
+  }
+  .popup-form .addcontact-form input::-moz-placeholder {
+    font-size: 1rem;
+  }
+  .popup-form .addcontact-form input:-ms-input-placeholder {
+    font-size: 1rem;
+  }
+  .popup-form .addcontact-form input::placeholder {
+    font-size: 1rem;
+  }
+  .popup-form .add-contact-btn {
+    font-size: 1.6rem;
+  }
+
+  .popup {
+    height: 100%;
+  }
+  .popup .close-form-btn {
+    /* Layout */
+    display: absolute;
+    float: right;
+    transform: translate(-1rem, 4rem);
+    /* Design */
+    font-size: 1rem;
+    padding: 0.5rem 0.75rem;
   }
 }
 /* Helper Files

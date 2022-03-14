@@ -73,50 +73,31 @@
             /* Layout */
             display: flex;
             flex-direction: column;
-
-            span {
-                /* Layout */
-                margin-top: -0.5rem;
-
-                /* Typography */
-                font-size: 2.5rem;
-                line-height: 2;
-            }
-            input {
-                /* Typography */
-                color: rgba(255, 98, 247, 0.8);
-
-                /* Design */
-                width: 20rem;
-                height: 4rem;
-                background-color: black;
-                border: 1px solid white;
-                border-radius: 5px;
-                padding: 0 1rem;
-
-                &::placeholder {
-                    /* Typography */
-                    color: rgba(255, 98, 247, 0.8);
-                }
-            }
         }
-        .add-contact-btn {
+        span {
             /* Layout */
-            height: 6rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-top: -0.5rem;
 
             /* Typography */
-            color: v.$softturquoise;
+            font-size: 2.5rem;
+            line-height: 2;
+        }
+        input {
+            /* Typography */
+            color: rgba(255, 98, 247, 0.8);
 
             /* Design */
+            width: 20rem;
+            height: 4rem;
             background-color: black;
-            border: 1px solid v.$softturquoise;
+            border: 1px solid white;
+            border-radius: 5px;
+            padding: 0 1rem;
 
-            /* Typography */
-            font-size: 2.6rem;
-            font-family: 'Syne Mono', monospace;
+            &::placeholder {
+                /* Typography */
+                color: rgba(255, 98, 247, 0.8);
+            }
         }
     }
     .add-contact-btn {
@@ -180,30 +161,39 @@
         }
     }
 }
-
+@media all and (max-width: 850px) {
+    .popup-form > h2 {
+        font-size: 4.5vw;
+    }
+}
 @media all and (max-width: 680px) {
     .popup-container {
         align-items: flex-start;
     }
     .popup-form {
         /* Reactive Layout */
-        height: 80vh;
-        padding: 4rem 5vw 0;
+        height: 90vh;
+        padding-top: 1.5rem;
+        justify-content: center;
+        align-items: center;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 0.2fr 2fr 0.5fr;
+        grid-template-rows: 0.2fr 3fr 0.5fr;
         justify-content: flex-start;
 
         h2 {
             /* Typography */
             color: rgba(255, 98, 247, 0.8);
             font-size: 3rem;
-            max-width: 30rem;
+            max-width: 55vw;
             margin: 2rem 0 3rem;
         }
-        .addcontact-form section > span {
+        .addcontact-form span {
+            /* Layout */
+            padding-bottom: 0.8rem;
+
             /* Typography */
-            font-size: 2rem;
+            font-size: 1.6rem;
         }
 
         .addcontact-form {
@@ -215,6 +205,59 @@
             margin: 0 auto;
             margin-top: -30rem;
             margin-bottom: 2rem;
+        }
+    }
+}
+
+@media all and (max-width: 400px) {
+    .popup-form {
+        height: 90vh;
+        max-height: 600px;
+        padding-top: 1.5rem;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            font-size: 1.6rem;
+            max-width: 15rem;
+            margin: 0;
+        }
+        .addcontact-form {
+            /* Layout */
+            margin-top: -20rem;
+
+            span {
+                /* Layout */
+                margin-top: 0.2rem;
+
+                /* Typography */
+                font-size: 1.4rem;
+                line-height: 2;
+            }
+            input {
+                height: 2.4rem;
+
+                &::placeholder {
+                    font-size: 1rem;
+                }
+            }
+        }
+        .add-contact-btn {
+            font-size: 1.6rem;
+        }
+    }
+    .popup {
+        height: 100%;
+
+        .close-form-btn {
+            /* Layout */
+            display: absolute;
+            float: right;
+            transform: translate(-1rem, 4rem);
+
+            /* Design */
+            font-size: 1rem;
+            padding: 0.5rem 0.75rem;
         }
     }
 }
