@@ -147,17 +147,25 @@ html {
 
 body {
   /* Design */
-  background-color: #747680;
+  background-color: #5f616d;
+  overflow: none;
 }
 
 main {
   /* Layout */
-  padding: 12rem 15vw;
+  padding: 12rem 8vw;
 }
 
+@media all and (max-width: 1000px) {
+  main {
+    /* Layout */
+    padding: 12rem 6vw;
+  }
+}
 header {
   /* Layout */
   height: 12rem;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,10 +207,13 @@ header > span:last-of-type {
 }
 
 .custom-shape-divider-top-1646919682 {
+  margin: 0 auto;
   position: absolute;
   width: 100%;
+  min-width: 1250px;
   overflow: hidden;
   line-height: 0;
+  margin-top: -0.5rem;
 }
 .custom-shape-divider-top-1646919682 svg {
   position: relative;
@@ -214,28 +225,81 @@ header > span:last-of-type {
   fill: #000000;
 }
 
+/* Reactive Styles */
+@media all and (max-width: 1000px) {
+  header {
+    padding: 2rem;
+  }
+}
+@media all and (max-width: 680px) {
+  header .logo {
+    font-size: 2.5rem;
+  }
+  header .date-time-block {
+    font-size: 1.2rem;
+  }
+  header > span:last-of-type {
+    max-width: 13rem;
+    font-size: 1rem;
+  }
+}
+@media all and (max-width: 500px) {
+  header {
+    height: 20%;
+  }
+  header .date-time-block {
+    display: none;
+  }
+}
 .control-bar {
   /* Component Typography */
   font-family: "Syne Mono", monospace;
+  /* Layout */
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .add-contact {
+  /* Avoid Background Blur on Popup*/
+  /* Typography */
+  font-family: "Syne Mono", monospace;
   /* Layout */
   float: left;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 5rem;
   /* Design */
   cursor: pointer;
   font-size: 2rem;
   color: #2cbed1;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: black;
   border: 1px solid #2cbed1;
-  border-radius: 50%;
+  border-radius: 5px;
+}
+.add-contact .add-contact-desktop {
+  /* Layout */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Typography */
+  font-size: 1.8rem;
+}
+.add-contact .add-contact-mobile {
+  /* Desktop vs. Mobile */
+  display: none;
+  /* Layout */
+  justify-content: center;
+  align-items: center;
+  /* Typography */
+  font-size: 1.8rem;
+}
+.add-contact:hover {
+  color: rgba(255, 98, 247, 0.8);
+  border-color: rgba(255, 98, 247, 0.8);
 }
 
 .display-date {
   /* Layout */
-  display: flow-root;
+  display: none;
   float: right;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -302,9 +366,7 @@ header > span:last-of-type {
 
 .column-labels {
   /* Layout */
-  display: flow-root;
   clear: both;
-  padding: 0 1vw;
   /* Design */
   color: #2cbed1;
   background-color: rgba(0, 0, 0, 0.6);
@@ -312,18 +374,339 @@ header > span:last-of-type {
 }
 .column-labels ul {
   /* Layout */
-  display: flex;
+  display: -ms-grid;
+  display: grid;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 2rem;
+  grid-template-columns: 1fr 1fr 0.75fr 1fr 1.5fr 0.75fr;
+  padding: 2rem 3rem;
   /* Typography */
   font-size: 2rem;
 }
 
+/* Reactive Styles */
+@media all and (max-width: 1000px) {
+  .column-labels ul {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .column-labels ul li:nth-of-type(3) {
+    display: none;
+  }
+  .column-labels ul li:nth-of-type(6) {
+    display: none;
+  }
+}
+@media all and (max-width: 525px) {
+  .add-contact .add-contact-desktop {
+    display: none;
+  }
+  .add-contact .add-contact-mobile {
+    display: flex;
+  }
+
+  .column-labels ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .column-labels ul li:nth-of-type(2) {
+    display: none;
+  }
+}
+.contacttable-container {
+  /* Layout */
+  margin: 5rem auto;
+  max-width: 1200px;
+  /* Design */
+  border: 1px solid #2cbed1;
+}
+.contacttable-container .row {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.contacttable-container .row:hover {
+  background-color: rgba(20, 20, 20, 0.9);
+}
+.contacttable-container .row:hover > * {
+  color: #c44fc8;
+  transform: scale(1.2);
+}
+.contacttable-container .row:nth-of-type(2n) {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.contacttable-container .row:nth-of-type(2n):hover {
+  background-color: rgba(20, 20, 20, 0.5);
+}
+
+.contact-grid {
+  /* Layout */
+  padding: 0;
+  /* Component Typography */
+  font-size: 1.6rem;
+  font-family: "Noto Sans", sans-serif;
+  color: #2cbed1;
+  line-height: 1.5;
+  /* Target Contact List Rows*/
+  /* Layout */
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.75fr 1fr 1.5fr 0.75fr;
+  padding: 2rem 3rem;
+  /* Target Contact List Cell */
+}
+.contact-grid > * {
+  /* Layout */
+  max-width: 24vw;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+  overflow: hidden;
+}
+
+/* Reactive Styles */
+@media all and (max-width: 1115px) {
+  .contact-grid * {
+    font-size: 1.25vw;
+  }
+}
+@media all and (max-width: 1000px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .contact-grid section:nth-of-type(3) {
+    display: none;
+  }
+  .contact-grid section:nth-of-type(6) {
+    display: none;
+  }
+  .contact-grid * {
+    font-size: 1.4rem;
+  }
+}
+@media all and (max-width: 750px) {
+  .contact-grid section:nth-of-type(4),
+.contact-grid :nth-of-type(5) {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+  }
+}
+@media all and (max-width: 525px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .contact-grid section:nth-of-type(2) {
+    display: none;
+  }
+}
+.popup-container {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  height: 65vh;
+  width: 80vw;
+  max-width: 90rem;
+}
+.popup .close-form-btn {
+  /* Layout */
+  display: absolute;
+  float: right;
+  transform: translate(-2rem, 6rem);
+  /* Design */
+  font-size: 2rem;
+  color: rgba(255, 98, 247, 0.8);
+  padding: 1rem 1.5rem;
+  border: 1px solid rgba(255, 98, 247, 0.8);
+  border-radius: 50%;
+  background-color: black;
+  cursor: pointer;
+}
+
+.popup-form {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 5vh 0;
+  height: 100%;
+  width: 100%;
+  /* Typography */
+  font-size: 2rem;
+  font-family: "Syne Mono", monospace;
+  color: #2cbed1;
+  /* Design */
+  background-color: black;
+  border: 2px solid #2cbed1;
+  border-radius: 3px;
+}
+.popup-form h2 {
+  /* Typography */
+  color: rgba(255, 98, 247, 0.8);
+  font-size: 4rem;
+}
+.popup-form .addcontact-form {
+  /* Layout */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 1rem 5rem;
+  min-height: 20rem;
+}
+.popup-form .addcontact-form > * {
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+}
+.popup-form .addcontact-form > * span {
+  /* Layout */
+  margin-top: -0.5rem;
+  /* Typography */
+  font-size: 2.5rem;
+  line-height: 2;
+}
+.popup-form .addcontact-form > * input {
+  /* Typography */
+  color: rgba(255, 98, 247, 0.8);
+  /* Design */
+  width: 20rem;
+  height: 4rem;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 0 1rem;
+}
+.popup-form .addcontact-form > * input::-moz-placeholder {
+  /* Typography */
+  color: rgba(255, 98, 247, 0.8);
+}
+.popup-form .addcontact-form > * input:-ms-input-placeholder {
+  /* Typography */
+  color: rgba(255, 98, 247, 0.8);
+}
+.popup-form .addcontact-form > * input::placeholder {
+  /* Typography */
+  color: rgba(255, 98, 247, 0.8);
+}
+.popup-form .addcontact-form .add-contact-btn {
+  /* Layout */
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Typography */
+  color: #2cbed1;
+  /* Design */
+  background-color: black;
+  border: 1px solid #2cbed1;
+  /* Typography */
+  font-size: 2.6rem;
+  font-family: "Syne Mono", monospace;
+}
+.popup-form .add-contact-btn {
+  /* Layout */
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Design */
+  color: #2cbed1;
+  background-color: black;
+  border: 1px solid rgba(255, 98, 247, 0.8);
+  border-radius: 5px;
+  /* Typography */
+  font-size: 2.6rem;
+  font-family: "Syne Mono", monospace;
+}
+.popup-form .add-contact-btn:hover {
+  /* Design */
+  cursor: pointer;
+  color: rgba(255, 98, 247, 0.8);
+  border-color: #2cbed1;
+  padding: 1rem 2.5rem;
+}
+
+/* Reactive Styles */
+@media all and (max-width: 1050px) {
+  .popup-form {
+    /* Reactive Layout */
+    padding: 10vh 5vw;
+  }
+  .popup-form .add-contact-btn {
+    /* Reactive Layout */
+    margin: 0 auto;
+  }
+}
+@media all and (max-width: 925px) {
+  .popup-form {
+    /* Reactive Layout */
+    padding: 10vh 4vw;
+  }
+}
+@media all and (max-width: 915px) {
+  .popup-form {
+    /* Reactive Layout */
+    padding: 5vw 5vw;
+  }
+  .popup-form .addcontact-form {
+    /* Reactive Layout */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 4rem 5rem;
+    height: 3rem;
+    margin: 0 auto 14rem;
+  }
+}
+@media all and (max-width: 680px) {
+  .popup-container {
+    align-items: flex-start;
+  }
+
+  .popup-form {
+    /* Reactive Layout */
+    height: 80vh;
+    padding: 4rem 5vw 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 2fr 0.5fr;
+    justify-content: flex-start;
+  }
+  .popup-form h2 {
+    /* Typography */
+    color: rgba(255, 98, 247, 0.8);
+    font-size: 3rem;
+    max-width: 30rem;
+    margin: 2rem 0 3rem;
+  }
+  .popup-form .addcontact-form section > span {
+    /* Typography */
+    font-size: 2rem;
+  }
+  .popup-form .addcontact-form {
+    /* Reactive Layout */
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    height: 3rem;
+    margin: 0 auto;
+    margin-top: -30rem;
+    margin-bottom: 2rem;
+  }
+}
 /* Helper Files
 ------------------------------*/
 /*  STYLES 
 ------------------------------*/
 /* Body */
 /* Header */
-/* Control Bar *//*# sourceMappingURL=globals.css.map */
+/* Control Bar */
+/* Contact Table */
+/* Popup Form *//*# sourceMappingURL=globals.css.map */
